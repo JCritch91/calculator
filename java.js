@@ -70,8 +70,8 @@ const decimalPressed = e => {
       return
     }
       if (num1 !== "" && oper !== "" && num2 !== ""){
-          n1 = parseFloat(num1String,10)
-          n2 = parseFloat(num2String,10)
+          n1 = parseFloat(num1String,2)
+          n2 = parseFloat(num2String,2)
           operate(n1, oper, n2)
           clear()
           return
