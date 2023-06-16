@@ -25,6 +25,8 @@ let id = 0
 
 
 const deletePressed = e => {
+  if (num1.length < 1 && num2.length < 1){
+    return}
     if (num2.length === 0){
         if (oper === ""){
             num1.splice(-1)
@@ -65,9 +67,12 @@ const decimalPressed = e => {
 
   const equalsPressed = e => {
     if (oper === " ÷ " && num2String === "0"){
-      clear()
+      fullClear()
       calculated.textContent= "You cant divide by Zero"
       return
+    }
+    if (num1.length < 1){
+      num1String = result
     }
       if (num1 !== "" && oper !== "" && num2 !== ""){
           n1 = parseFloat(num1String,2)
@@ -86,7 +91,7 @@ const decimalPressed = e => {
  
 
 const cancelPressed = e => {
-    clear();
+    fullClear();
     numberInputScrn.textContent= ""
     calculated.textContent = 0
   }
@@ -117,16 +122,16 @@ for (let number of numbers) {
 }
 
 const operPressed = e => {
-    if (num1 !== ""){
-    if (operComplete==="true"){
-        return;
-    } else {
+  if (num1.length <1 && result < 1){
+    return
+  }
+    if (num1.length > 0 | result > 0){
     id = e.target.textContent;  // Get ID of Clicked Element
     oper = ' '+id +' '
     num1Complete = "true"
     decimalComplete = "false"}
     numberInputScrn.textContent= num1String + oper
-    }
+    
 }
   
   
@@ -137,6 +142,7 @@ const operPressed = e => {
 
 
 function operate(n1, oper, nu2){
+
 if (oper === " + "){
     add(n1,n2);
     return;
@@ -176,7 +182,21 @@ function divide(n1, n2){
     return;
 }
 
-function clear() {
+function clear(){
+num1.length = 0
+num1String =""
+num2String=""
+num1Complete = "false"
+decimalComplete ="false"
+num2.length =0
+oper = ""
+operComplete ="true"
+numberCapture =""
+id = 0
+return;
+}
+
+function fullClear() {
 num1.length = 0
 num1String =""
 num2String=""
