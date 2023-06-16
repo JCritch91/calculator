@@ -67,6 +67,9 @@ const decimalPressed = e => {
 
 
   const equalsPressed = e => {
+    if (num2.length < 1){
+      return;
+    }
     if (oper === " ÷ " && num2String === "0"){
       fullClear();
       calculated.textContent= "You can't divide by Zero";
