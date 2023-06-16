@@ -69,6 +69,10 @@ body,
             font-size: 20px;
         }
 
+        button:hover{
+           transform: scale(1.05); 
+        }
+
         #equals,
         #cancel{
             width: 135px;
@@ -100,4 +104,7 @@ body,
         #git{
             height: 30px;
             width: auto;
+        }
+        #git:hover{
+            transform: scale(1.1);
         }
